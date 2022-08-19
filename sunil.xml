@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="sunil_Suite">
+	<test name="sunilTest">
+		<classes>
+			<class name="com.test.practice1.test12">
+				<methods>
+					<include name="LaunchApp"/>
+					<include name="LaunchBrowser"/>
+					<include name="LoginDetails" />
+					<include name="NavigateToMyInfopage" />
+					<include name="NavigateToPersonlInformation"/>
+					<include name="Verifylogin"/>
+					<include name="NavigateToRecruitmentPage"/>
+				</methods>
+			</class>
+			<class name="com.test.practice1.FirstTest">
+				<methods>
+					<include name="TestGoogle" />
+					<include name="TestFacebook"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
