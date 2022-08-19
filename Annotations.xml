@@ -9,6 +9,7 @@
       	<include name="testmethod2"/>
       	</methods>
       </class>
+      
     </classes>
   </test> <!-- AnnotationsTest -->
 </suite> <!-- AnnotationsSuite -->
