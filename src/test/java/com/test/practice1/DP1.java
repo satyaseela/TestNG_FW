@@ -23,9 +23,9 @@ public class DP1 {
 		Thread.sleep(2000);
 		driver.quit();	
 	}
-	@DataProvider
+	@DataProvider(parallel=true)
 	public Object[][] loginData(){
-		Object[][] data = new Object[3][2];
+		Object[][] data = new Object[4][2];
 		data[0][0] = "Admin";
 		data[0][1] = "admin123";
 		
@@ -34,6 +34,9 @@ public class DP1 {
 		
 		data[2][0] = "admin";
 		data[2][1] = "Admin123";
+		
+		data[3][0] = "admin";
+		data[3][1] = "Admin124";
 		
 		return data;
 		

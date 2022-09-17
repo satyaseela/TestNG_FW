@@ -17,7 +17,7 @@ public class FirstTest {
 	WebDriver driver;
 	@Parameters("browserName")
 	@BeforeTest
-	public void LaunchApp(@Optional("firefox") String browserName) {
+	public void LaunchApp(@Optional("chrome") String browserName) {
 		switch (browserName.toLowerCase()) {
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
@@ -45,7 +45,7 @@ public class FirstTest {
 		driver.findElement(By.name("q")).sendKeys("w3school",Keys.ENTER);
 		System.out.println(driver.getTitle());
 		Thread.sleep(2000);
-//		driver.quit();
+		//driver.quit();
 		
 	}
 	@Test
