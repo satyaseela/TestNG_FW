@@ -25,9 +25,7 @@ public class Assertions {
 		String actualTitle = driver.getTitle();
 		System.out.println(actualTitle);
 		Assert.assertEquals(actualTitle,expectedTitle, "Title missmatch" );
-	
 		Thread.sleep(2000);
 		driver.quit();
-
 }
 }
