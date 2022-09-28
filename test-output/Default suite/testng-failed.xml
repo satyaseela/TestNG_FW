@@ -3,18 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.test.practice1.ParaOrangeHRM">
+      <class name="com.test.practice1.OrangeHRM">
         <methods>
-          <include name="VerifyMyInfoPage"/>
-          <include name="LaunchApp"/>
-          <include name="NavigateToMyInfopage"/>
-          <include name="NavigateToRecruitmentpage"/>
-          <include name="LaunchApplication"/>
           <include name="VerifyLogin"/>
           <include name="tear_down"/>
-          <include name="LoginDetails"/>
+          <include name="VerifyRecruitmentPage"/>
+          <include name="GetLoginDetails"/>
+          <include name="VerifyMyInfoPage"/>
+          <include name="NavigateToMyInfopage"/>
+          <include name="LaunchBrowser"/>
+          <include name="NavigateToRecruitmentpage"/>
+          <include name="LaunchApp"/>
         </methods>
-      </class> <!-- com.test.practice1.ParaOrangeHRM -->
+      </class> <!-- com.test.practice1.OrangeHRM -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

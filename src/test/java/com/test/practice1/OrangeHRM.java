@@ -1,9 +1,15 @@
 package com.test.practice1;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -12,25 +18,31 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class OrangeHRM {
 	WebDriver driver;
+	String nodeURL;
 	
 	@BeforeTest
-	public void LaunchApp() {
-		 WebDriverManager.chromedriver().setup();
-		 driver = new ChromeDriver();
-		
+	public void LaunchApp() throws MalformedURLException {
+		nodeURL = "http://192.168.1.195:4444/";
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+    	options.setAcceptInsecureCerts(true);
+    	
+    	DesiredCapabilities capabilities = new DesiredCapabilities();
+    	capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        driver = new RemoteWebDriver(new URL(nodeURL), options);
 	}
 	
 	@Test
 	public void LaunchBrowser() throws InterruptedException {
 		driver.get("https://opensource-demo.orangehrmlive.com/");
 		driver.manage().window().maximize();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	}
 	
 	@Test
 	public void GetLoginDetails() throws InterruptedException {
-		driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("Admin");
-		driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("admin123");
+		driver.findElement(By.xpath("(//input[@placeholder='Username'])[1]")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
 		driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 		Thread.sleep(2000);
 		//driver.findElement(By.id("txtUsername")).sendKeys("Admin");
@@ -67,7 +79,7 @@ public class OrangeHRM {
 	}
 	@AfterTest
 	public void tear_down() {
-		driver.quit();
+		//driver.quit();
 		
 	}
 }
